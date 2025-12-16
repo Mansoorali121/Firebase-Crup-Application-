@@ -3,7 +3,7 @@ import React from 'react'
 
 const App = () => {
   return (
-    <View style={{flex:1}}>
+    <View style={{flex:1, backgroundColor:"red"}}>
       <Text>Firebase Crud Application</Text>
     </View>
   )
