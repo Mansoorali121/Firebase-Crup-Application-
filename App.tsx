@@ -9,6 +9,7 @@ const App = () => {
       </View>
       <View>
         <Text>React Native Firebase Package Download</Text>
+        <Text> Firebase Integration</Text>
       </View>
     </View>
   )
