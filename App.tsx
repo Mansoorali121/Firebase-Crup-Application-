@@ -9,7 +9,7 @@ const App = () => {
       </View>
       <View>
         <Text>React Native Firebase Package Download</Text>
-        <Text> Firebase Integration</Text>
+        <Text> Firebase Integration with Google services</Text>
       </View>
     </View>
   )
