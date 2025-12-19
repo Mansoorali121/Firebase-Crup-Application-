@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "471698448338",
+    "project_id": "newapp-e780f",
+    "storage_bucket": "newapp-e780f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471698448338:android:530b9c959fa7cf9329b20b",
+        "android_client_info": {
+          "package_name": "com.crud_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVOh3ojo4eIC1spnM0C-EIkU4-EOzLGKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
