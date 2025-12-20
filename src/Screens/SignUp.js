@@ -1,10 +1,26 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useState } from 'react';
 import Submt_button from '../components/Submt_button';
+import auth from '@react-native-firebase/auth';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // Sign Up Logic
+
+  const signUpTest = () => {
+    auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        Alert.alert('User Accound registered');
+        setEmail("");
+        setPassword("");
+      })
+      .catch(error => {
+        console.log('Error', error);
+        Alert.alert('Error', error.message);
+      });
+  };
   return (
     <View style={{ flex: 1 }}>
       <View style={{ alignItems: 'center', top: 20 }}>
@@ -20,10 +36,13 @@ const SignUp = () => {
               value={email}
               onChangeText={setEmail}
             />
-            <TextInput style={styles.input} placeholder="Enter  Password: " 
-            value={password} onChangeText={setPassword}
+            <TextInput
+              style={styles.input}
+              placeholder="Enter  Password: "
+              value={password}
+              onChangeText={setPassword}
             />
-            <Submt_button />
+            <Submt_button onPress={signUpTest} />
           </View>
         </View>
       </View>
