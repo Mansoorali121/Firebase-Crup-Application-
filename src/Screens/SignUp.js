@@ -12,7 +12,7 @@ const SignUp = () => {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        Alert.alert('User Accound registered');
+        Alert.alert('User Accound registered with these credentials.! '+email,password);
         setEmail("");
         setPassword("");
       })
