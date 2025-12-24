@@ -2,19 +2,25 @@ import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useState } from 'react';
 import Submt_button from '../components/Submt_button';
 import auth from '@react-native-firebase/auth';
+import { useNavigation } from '@react-navigation/native';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // Sign Up Logic
+  const navigation = useNavigation();
 
   const signUpTest = () => {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        Alert.alert('User Accound registered with these credentials.! '+email,password);
-        setEmail("");
-        setPassword("");
+        Alert.alert(
+          'User Accound registered with these credentials.! ' + email,
+          password,
+        );
+        setEmail('');
+        setPassword('');
+        navigation.navigate("Login");
       })
       .catch(error => {
         console.log('Error', error);
@@ -44,6 +50,21 @@ const SignUp = () => {
             />
             <Submt_button onPress={signUpTest} />
           </View>
+          <Text
+            style={{
+              fontSize: 14,
+              marginTop: 10,
+            }}
+          >
+            Already Have an Account.?{' '}
+            <Text
+              onPress={() => navigation.navigate('Login')}
+              style={{ color: 'red' }}
+            >
+              {' '}
+              Login
+            </Text>{' '}
+          </Text>
         </View>
       </View>
     </View>
