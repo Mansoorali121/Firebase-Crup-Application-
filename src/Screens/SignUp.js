@@ -23,7 +23,7 @@ const SignUp = () => {
         navigation.navigate("Login");
       })
       .catch(error => {
-        console.log('Error', error.code);
+        console.log('Error', error.nativeErrorMessage);
         Alert.alert('Error', error.message);
       });
   };
