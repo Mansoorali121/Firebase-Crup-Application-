@@ -1,17 +1,17 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const Submt_button = ({ onPress }) => {
+const Submt_button = ({ onPress, color, btntext }) => {
   return (
     <Pressable onPress = {onPress}
       style={{
-        backgroundColor: 'salmon',
+        backgroundColor:color?color:"blue",
         padding: 20,
         borderRadius: 10,
         alignItems: 'center',
       }}
     >
-      <Text style={{ color: '#fff', fontWeight: '500' }}>Signup</Text>
+      <Text style={{ color: '#fff', fontWeight: '500' }}>{btntext}</Text>
     </Pressable>
   );
 };

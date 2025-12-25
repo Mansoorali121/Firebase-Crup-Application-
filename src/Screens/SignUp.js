@@ -24,7 +24,7 @@ const SignUp = () => {
       })
       .catch(error => {
         console.log('Error', error.nativeErrorMessage);
-        Alert.alert('Error', error.message);
+        Alert.alert('Error', error.code);
       });
   };
   return (
@@ -48,7 +48,7 @@ const SignUp = () => {
               value={password}
               onChangeText={setPassword}
             />
-            <Submt_button onPress={signUpTest} />
+            <Submt_button onPress={signUpTest} color="salmon" btntext="Signup" />
           </View>
           <Text
             style={{
