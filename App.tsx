@@ -32,9 +32,9 @@ const App = () => {
   const getToken = async () => {
   try {
     const token = await messaging().getToken();
-    console.log('Token:', token);
+    console.log('Token is fetched:', token);
   } catch (error) {
-    console.log('Error getting Token:', error);
+    console.log('Error  TokeGetting ', error);
   }
 };
 
