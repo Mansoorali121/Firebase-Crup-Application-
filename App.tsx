@@ -16,9 +16,9 @@ const App = () => {
       PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
     );
     if (granted == PermissionsAndroid.RESULTS.GRANTED) {
-      console.log('Permission granted ');
+      console.log(' Android Permission granted ');
     } else {
-      console.log('Permission Denied');
+      console.log(' Android Permission Denied');
     }
   };
   // const getToken = async () => {
@@ -34,7 +34,7 @@ const App = () => {
     const token = await messaging().getToken();
     console.log('Token is fetched:', token);
   } catch (error) {
-    console.log('Error  TokeGetting ', error);
+    console.log('Error Token Getting ', error);
   }
 };
 
