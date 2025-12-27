@@ -11,6 +11,7 @@ import firestore from '@react-native-firebase/firestore';
 const Categories = () => {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
+  const [food,setFood] = useState([]);
 
   useEffect(() => {
     const subcscriber = firestore()
@@ -32,17 +33,45 @@ const Categories = () => {
   if (loading) {
     <ActivityIndicator />;
   }
-  console.log(categories);
+useEffect(()=>{
+  const subsciber = firestore().collection("foods").onSnapshot(res =>{
+    const foods = [];
+    res.forEach(documentSnapshot => {
+      foods.push({
+        ...documentSnapshot.data(),
+        key: documentSnapshot.id,
+      });
+    });
+    setFood(foods);
+  });
+  return () =>subsciber();
+
+}, [])
   return (
-    <FlatList
+ <View>
+     <FlatList
       data={categories}
       renderItem={({ item }) => (
         <View>
           <Text>{item.title}</Text>
           <Text>Mansoor</Text>
+         
         </View>
       )}
     />
+      <FlatList
+      data={food}
+      renderItem={({ item }) => (
+        <View>
+          <Text style={{fontSize:20,color:"red", textAlign:"center"}}>{item.title}</Text>
+         
+         
+        </View>
+      )}
+    />
+   
+ </View>
+  
   );
 };
 
