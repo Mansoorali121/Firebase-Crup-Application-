@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import firestore from '@react-native-firebase/firestore';
 
 const Home = () => {
-  const [dish,setDish] = useState();
+  const [dish,setDish] = useState("");
 
   const fetchData = async () => {
     const foodscollection = await firestore()
