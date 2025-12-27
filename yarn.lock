@@ -2007,6 +2007,11 @@
   dependencies:
     plist "^3.1.0"
 
+"@react-native-firebase/database@^23.7.0":
+  version "23.7.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-23.7.0.tgz#0ccb911894074c55f95fc8c44221dca5087a8812"
+  integrity sha512-TfpH71IBKI+vF3ui/FThEs2NbJ1a3bNl0Ej/mL3lnfwIrWl62yDJPS/+K2uv4GQnlDmW3x7QhSkw033bIUNWmA==
+
 "@react-native-firebase/firestore@^23.7.0":
   version "23.7.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-23.7.0.tgz#b3cb28346840b985bd36fd99f098f305f8dfa09a"

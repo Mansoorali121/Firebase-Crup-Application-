@@ -1,28 +1,32 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
-import firestore from "@react-native-firebase/firestore"
+import React, { useEffect, useState } from 'react'
+import firestore from '@react-native-firebase/firestore';
 
 const Home = () => {
-  /// Function to fetch Firebase Firestore Data
+  const [dish,setDish] = useState();
+
   const fetchData = async () => {
-    const foodCollection = await firestore().collection("foods").get();
-    console.log(foodCollection);
+    const foodscollection = await firestore()
+      .collection('foods')
+      .get();
+
     
-  }
+    console.log(foodscollection.docs[0].data());
+    setDish(foodscollection.docs[0].data());
+  };
 
-  /// UseEffect Hook to fetch data on component mount
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
-
-  },[])
+  }, []);
 
   return (
     <View>
       <Text>Home</Text>
+      <Text>{dish.Price}</Text>
     </View>
-  )
-}
+  );
+};
 
 export default Home;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
