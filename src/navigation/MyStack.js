@@ -2,12 +2,22 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignUp from '../Screens/SignUp';
 import Login from '../Screens/Login';
 import Home from "../Screens/Home"
-
+import Categories from "../Screens/Categories"
 const Stack = createStackNavigator();
 
 export default function MyStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen name='Categories'
+      component={Categories}
+      options={{headerShown:false}}
+      />
+
+         <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="SignUp"
         component={SignUp}
@@ -18,11 +28,7 @@ export default function MyStack() {
         component={Login}
         options={{ headerShown: false }}
       />
-        <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ headerShown: false }}
-      />
+        
     </Stack.Navigator>
   );
 }
