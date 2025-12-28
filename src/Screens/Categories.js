@@ -23,10 +23,11 @@ const Categories = () => {
         title: 'Big Meals',
         imageURL:
           'https://media.istockphoto.com/id/475499733/photo/nachos.jpg?s=612x612&w=0&k=20&c=32sM2sMi8Clk8C99JdTXilaUv9wv9UnNF4jslj7JQxs=',
-      })
-      .then(() => {
+      }).then((res) => {
         Alert.alert('Category Added Successfully: ');
-      });
+      }).catch((err)=>{
+        console.log("Error",err);
+      })
   };
   ///// Add Foods ////
   const addfood= () => {
@@ -36,6 +37,11 @@ const Categories = () => {
       Price:20,
       rating:6.2,
       image_url:"https://img.freepik.com/premium-photo/plate-food-with-noodles-meat-vegetables_1197144-525.jpg?semt=ais_hybrid&w=740&q=80"
+    })
+    .then((res)=>{
+      Alert.alert("Food added Successfully")
+    }).catch((err)=>{
+      console.log("Error",err);
     })
   }
   useEffect(() => {
