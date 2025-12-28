@@ -7,12 +7,23 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import firestore from '@react-native-firebase/firestore';
+import Submt_button from '../components/Submt_button';
+import { Alert } from 'react-native/types_generated/index';
 
 const Categories = () => {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [food,setFood] = useState([]);
 
+
+  /// Function to add Data//
+  const addcategory = () => {
+    firestore().collection("catogries").add({
+      title:"Big Meals",
+      imageURL:"https://media.istockphoto.com/id/475499733/photo/nachos.jpg?s=612x612&w=0&k=20&c=32sM2sMi8Clk8C99JdTXilaUv9wv9UnNF4jslj7JQxs="
+    })
+    Alert.alert("Category Added Successfully: ")
+  }
   useEffect(() => {
     const subcscriber = firestore()
       .collection('catogries')
@@ -55,6 +66,7 @@ useEffect(()=>{
         <View>
           <Text>{item.title}</Text>
           <Text>Mansoor</Text>
+
          
         </View>
       )}
@@ -69,6 +81,8 @@ useEffect(()=>{
         </View>
       )}
     />
+    
+          <Submt_button onPress={addcategory} color="green" btntext="Add Category" />
    
  </View>
   
