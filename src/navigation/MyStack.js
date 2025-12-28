@@ -1,19 +1,21 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import SignUp from '../Screens/SignUp';
 import Login from '../Screens/Login';
-import Home from "../Screens/Home"
-import Categories from "../Screens/Categories"
+import Home from '../Screens/Home';
+import Categories from '../Screens/Categories';
+import FoodorCategory from "../Screens/FoodorCategory"
 const Stack = createStackNavigator();
 
 export default function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='Categories'
-      component={Categories}
-      options={{headerShown:false}}
+      <Stack.Screen
+        name="Categories"
+        component={Categories}
+        options={{ headerShown: false }}
       />
 
-         <Stack.Screen
+      <Stack.Screen
         name="Home"
         component={Home}
         options={{ headerShown: false }}
@@ -28,7 +30,11 @@ export default function MyStack() {
         component={Login}
         options={{ headerShown: false }}
       />
-        
+      <Stack.Screen
+        name="Adddata"
+        component={FoodorCategory}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
