@@ -1,9 +1,15 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Alert, Image, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import firestore from '@react-native-firebase/firestore';
 
 const Home = () => {
   const [dish, setDish] = useState('');
+
+  console.log("====================")
+  console.log(JSON.stringify(dish,null,3))
+  console.log("====================")
+
+
 
   const fetchData = async () => {
     const foodscollection = await firestore().collection('foods').get();
@@ -16,6 +22,18 @@ const Home = () => {
     fetchData();
   }, []);
 
+
+  // Delete data 
+  const deleteItem = () => {
+firestore().collection("catogries").doc("")
+.delete()
+.then((res)=>{
+  Alert.alert("Item Deleted Successfully: ")
+}).catch((err)=>{
+  console.log("Error",err)
+  Alert.alert("Error Deleting data",err.message)
+})
+  }
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text style={{ fontSize: 40 }}>Home Screen</Text>
