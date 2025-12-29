@@ -9,17 +9,18 @@ const Stack = createStackNavigator();
 export default function MyStack() {
   return (
     <Stack.Navigator>
+       <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="Categories"
         component={Categories}
         options={{ headerShown: false }}
       />
 
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ headerShown: false }}
-      />
+     
       <Stack.Screen
         name="SignUp"
         component={SignUp}
