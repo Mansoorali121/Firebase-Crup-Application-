@@ -35,6 +35,24 @@ const Home = () => {
         Alert.alert('Error Deleting data', err.message);
       });
   };
+
+  /// Update Data ///
+  const updateItem = () => {
+    firestore()
+      .collection('catogries')
+      .doc('jOZvyhbqzAm3bcFCS51T')
+      .update({
+        title: 'New Fresh Title',
+        imageURL: 'https://newimageurl.com/image.jpg',
+      })
+      .then(res => {
+        Alert.alert('Item Updated Successfully');
+      })
+      .catch(err => {
+        console.log('Error', err);
+        Alert.alert('Error Updating Item', err.message);
+      });
+  };
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text style={{ fontSize: 40 }}>Home Screen</Text>
@@ -59,11 +77,14 @@ const Home = () => {
           style={{ height: 100, width: 100, top: 20, borderRadius: 20 }}
           source={{ uri: dish.image_url }}
         />
- 
       </View>
-      <View style={{marginTop:60}}>
-      <Submt_button btntext="Delete Item" color="green" onPress={deleteItem}/>
-
+      <View style={{ marginTop: 60, gap: 20 }}>
+        <Submt_button
+          btntext="Delete Item"
+          color="green"
+          onPress={deleteItem}
+        />
+        <Submt_button btntext="Update Item" color="blue" onPress={updateItem} />
       </View>
     </View>
   );
